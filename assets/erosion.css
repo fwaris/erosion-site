@@ -23,8 +23,16 @@ body:has(.erosion-home) {background:var(--paper)}
 .erosion-actions span {margin-left:.25rem}
 .erosion-home a:hover,.erosion-home a:focus-visible {text-decoration:underline;text-underline-offset:.2em}
 .erosion-preview {margin:0;background:var(--erosion-shale);border:1px solid #bccbbb;border-radius:.65rem;overflow:hidden}
-.erosion-stage {height:clamp(17rem,29vw,23rem);position:relative;overflow:hidden;display:grid;place-items:center;padding:.7rem;background-color:var(--erosion-patina);background-image:linear-gradient(#51716c45 1px,transparent 1px),linear-gradient(90deg,#51716c45 1px,transparent 1px);background-size:1.5rem 1.5rem}
-.erosion-orbit {position:absolute;inset:12% -30% 2%;transform:rotate(-26deg);border:1px solid #d7edaa80;border-radius:50%;box-shadow:0 0 0 18px var(--erosion-patina),0 0 0 19px #a5bd9070,0 0 0 38px var(--erosion-patina),0 0 0 39px #a5bd9050}
+.erosion-wordmark {width:8rem;height:auto;display:block;margin-bottom:1.1rem}
+.erosion-language {white-space:nowrap}
+.erosion-language img {width:.66em;height:.66em;vertical-align:baseline;margin-left:.16em}
+.erosion-stage {height:clamp(20rem,34vw,26rem);position:relative;overflow:hidden;display:grid;place-items:center;padding:1rem;background:var(--erosion-patina) url("brand/erosion-layers.svg") center / 100% 100% no-repeat}
+.erosion-exhibits {display:flex;align-items:center;gap:.6rem;margin-top:.5rem;font-size:.7rem}
+.erosion-exhibits[hidden] {display:none}
+.erosion-exhibits select {max-width:100%;padding:.25rem .5rem;font:inherit;color:var(--ink);background:var(--paper);border:1px solid #87978c;border-radius:.25rem}
+.gallery-exhibits {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,8rem),1fr));gap:1rem}
+.md-typeset .gallery-exhibits figure {margin:0}
+.gallery-exhibits img {width:100%;border:1px solid #d4d9ce;border-radius:.4rem}
 .erosion-handset {position:relative;height:100%;max-height:100%;min-height:0;aspect-ratio:9/20;transform:rotate(3deg);border:.3rem solid #182124;border-radius:1.25rem;overflow:hidden;background:#172a2d;box-shadow:.14rem .17rem 0 #738681,.8rem 1rem 1.7rem #14262799}
 .erosion-handset img {display:block;width:100%;height:100%;object-fit:contain}
 .erosion-preview figcaption {padding:.6rem .8rem .75rem}
