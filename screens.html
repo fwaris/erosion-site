@@ -1,0 +1,777 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Use Erosion to build native iOS and Android screens, state, and navigation in Rust.">
+      
+      
+      
+        <link rel="canonical" href="https://fwaris.github.io/erosion-site/screens.html">
+      
+      
+        <link rel="prev" href="getting-started.html">
+      
+      
+        <link rel="next" href="styling.html">
+      
+      
+      <link rel="icon" href="assets/brand/erosion-mark.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Screens and state - Erosion</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/brand/palette.css">
+    
+      <link rel="stylesheet" href="assets/erosion.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#screens-and-state" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Erosion" class="md-header__button md-logo" aria-label="Erosion" data-md-component="logo">
+      
+  <img src="assets/brand/erosion-mark.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Erosion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Screens and state
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Erosion" class="md-nav__button md-logo" aria-label="Erosion" data-md-component="logo">
+      
+  <img src="assets/brand/erosion-mark.svg" alt="logo">
+
+    </a>
+    Erosion
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Screens and state
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="screens.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Screens and state
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-message-and-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model, message, and update
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model, message, and update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-games-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the games use it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-the-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose the view
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-keyed-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a keyed editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-native-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handle native input
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-an-authoring-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose an authoring style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-a-separate-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register a separate app
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="styling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layout and styling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="navigation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigation and effects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="devices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Device capabilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="samples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="brand.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Brand kit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-message-and-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model, message, and update
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model, message, and update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-games-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the games use it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-the-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose the view
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-keyed-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a keyed editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-native-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handle native input
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-an-authoring-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose an authoring style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-a-separate-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register a separate app
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="screens-and-state">Screens and state<a class="headerlink" href="#screens-and-state" title="Permanent link">&para;</a></h1>
+<p>A generated app supplies a model, an update function, and a view. Erosion turns the view into native controls and delivers their bound messages to the app. For direct control of rendering and event dispatch, an app can implement <code>runtime::Application</code>.</p>
+<h2 id="model-message-and-update">Model, message, and update<a class="headerlink" href="#model-message-and-update" title="Permanent link">&para;</a></h2>
+<p>Use this optional pattern when several controls or events can change the same state. The <strong>model</strong> holds the current state. A <strong>message</strong> (<code>Msg</code>) names an intent. <strong>Update</strong> applies that intent to the model, and the <strong>view</strong> describes the screen from the resulting state.</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span><span class="n">declarative</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">ViewScreen</span><span class="p">},</span><span class="w"> </span><span class="n">design</span><span class="p">::</span><span class="n">Role</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">};</span>
+
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="cp">#[derive(Clone)]</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Increment</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">Model</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="nc">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="nc">model</span><span class="p">.</span><span class="n">count</span><span class="p">.</span><span class="n">saturating_add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">counter</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">Model</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">ViewScreen</span><span class="o">&lt;</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">view</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">strata_screen</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"Counter"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">text</span><span class="p">(</span><span class="s">"count"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">count</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"> </span><span class="n">Role</span><span class="p">::</span><span class="n">Body</span><span class="p">);</span>
+<span class="w">            </span><span class="n">button</span><span class="p">(</span><span class="s">"add"</span><span class="p">,</span><span class="w"> </span><span class="s">"Add one"</span><span class="p">).</span><span class="n">on_press</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">erosion_ui</span><span class="p">::</span><span class="n">erosion_app</span><span class="o">!</span><span class="p">(</span><span class="n">Model</span><span class="p">::</span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">update</span><span class="p">,</span><span class="w"> </span><span class="n">counter</span><span class="p">);</span>
+</code></pre></div>
+<p>The single-screen adapter uses route zero and keeps one set of mounted bindings per app instance. To handle lifecycle, Back, or device replies, implement <code>app::DeclarativeApp</code> with your own message type. Its <code>update</code> receives bound messages and its <code>on_host_event</code> receives unbound <code>HostEvent</code> values. Return <code>Box::new(AppAdapter::new(app))</code> from the native factory. Override the route and presentation hooks when your model owns a navigation stack.</p>
+<h3 id="how-the-games-use-it">How the games use it<a class="headerlink" href="#how-the-games-use-it" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Falling Blocks</strong> binds the Left button to <code>Msg::Move(Move::Left)</code>. A left swipe is classified as <code>Move::Left</code> and reaches the same <code>Game::apply_move</code> rule. The game owns its board, score, and phase. The application adapter handles clock ticks, navigation, and saving the high score. Start with <code>samples/falling-blocks/src/view.rs</code> and follow the binding into <code>src/lib.rs</code>.</li>
+<li><strong>Field Catch</strong> binds both keyboard submission and the Join Field button to <code>Msg::JoinField</code>. Its reducer takes an <code>AppInput</code>, which can carry a UI message, a typed WebRTC callback, or another platform event. It returns the next model and effects for the host to execute, such as requesting GPS. Start with <code>samples/field-catch/src/view.rs</code> and follow <code>AppInput</code> and <code>update</code> in <code>src/lib.rs</code>. <a href="navigation.html#request-a-native-operation">Navigation and effects</a></li>
+</ul>
+<h3 id="compose-the-view">Compose the view<a class="headerlink" href="#compose-the-view" title="Permanent link">&para;</a></h3>
+<p>A child block accepts immutable <code>let</code> bindings, <code>if let</code>, <code>if/else</code>, <code>match</code> with braced arms, and <code>for</code>. End leaf and component expressions with a semicolon. Return a <code>ViewNode&lt;Msg&gt;</code> for one control or a <code>Fragment&lt;Msg&gt;</code> for several siblings. A fragment adds no native container. Use item-derived keys in loops and give every interactive source a unique key across the whole screen, including toolbar and accessibility actions.</p>
+<p>Use a <code>toolbar { ... }</code> block on the screen root. For example, a call action can be declared as <code>toolbar_item("video-call", "Video call", "video_camera").enabled(can_call).on_press(Msg::VideoCall);</code>. Toolbar conditions follow the same rules as body conditions. Import <code>widgets::ViewModifiers</code> for style methods such as <code>.rounded(12)</code>. An existing keyed <code>Node</code> can be inserted directly. Wrap it with <code>from_node</code> to attach a typed native event binding. The complete example lives in <code>samples/field-catch/src/view.rs</code>.</p>
+<h2 id="build-a-keyed-editor">Build a keyed editor<a class="headerlink" href="#build-a-keyed-editor" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span>
+<span class="w">    </span><span class="n">widgets</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">column</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">ViewModifiers</span><span class="p">},</span>
+<span class="w">    </span><span class="n">Node</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">editor</span><span class="p">(</span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">column</span><span class="p">(</span><span class="s">"editor"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
+<span class="w">        </span><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="s">"Note title"</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">),</span>
+<span class="w">        </span><span class="n">button</span><span class="p">(</span><span class="s">"save"</span><span class="p">,</span><span class="w"> </span><span class="s">"Save note"</span><span class="p">).</span><span class="n">rounded</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+<span class="w">    </span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Place <code>editor(&amp;self.title)</code> in the children passed to <code>widgets::screen</code>. Give each sibling a unique, stable key. A key describes a control’s identity across renders. Changing it can replace the native field and interrupt an edit.</p>
+<h2 id="handle-native-input">Handle native input<a class="headerlink" href="#handle-native-input" title="Permanent link">&para;</a></h2>
+<p>In an existing app model with a <code>title: String</code> field and a <code>save()</code> method, the update branches for the editor look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Input</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"title"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
+<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Press</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"save"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">save</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For a <code>Control::List</code>, give every <code>Item</code> its own persistent numeric ID. Handle <code>HostEvent::Pick { key, id }</code> using that ID, so filtering or reordering rows still opens the correct item.</p>
+<h2 id="choose-an-authoring-style">Choose an authoring style<a class="headerlink" href="#choose-an-authoring-style" title="Permanent link">&para;</a></h2>
+<p>Widget functions and chainable modifiers cover common controls. Use <code>Control</code> variants directly for more specialized declarations. The optional <code>ui!</code> macro constructs the same keyed nodes:</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span><span class="n">ui</span><span class="p">,</span><span class="w"> </span><span class="n">widgets</span><span class="p">::</span><span class="n">button</span><span class="p">};</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="o">!</span><span class="p">(</span><span class="s">"form"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="n">ui</span><span class="o">!</span><span class="p">(</span><span class="s">"volume"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Slider</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">label</span><span class="p">:</span><span class="w"> </span><span class="s">"Volume"</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">    </span><span class="n">button</span><span class="p">(</span><span class="s">"save"</span><span class="p">,</span><span class="w"> </span><span class="s">"Save"</span><span class="p">),</span>
+<span class="p">]);</span>
+</code></pre></div>
+<p>The engine compares successive screen descriptions and sends changes over a revisioned bridge. The declarative API, individual widget constructors and both macros use that update path.</p>
+<h2 id="register-a-separate-app">Register a separate app<a class="headerlink" href="#register-a-separate-app" title="Permanent link">&para;</a></h2>
+<p>Add a crate under <code>samples/</code>, list it in the workspace, and depend on <code>erosion-ui</code> by path. Implement <code>Application</code> and export its factory with <code>erosion_native_host::export_app!</code>. Add the corresponding Android module in <code>android/mobile/build.gradle</code> and a dedicated XcodeGen project under <code>ios/</code> (for example, <code>ios/Gallery.yml</code>). Use the same app selector for both hosts. After this initial setup, ordinary screens can be added entirely within the Rust crate.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
