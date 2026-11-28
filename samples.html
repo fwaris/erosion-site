@@ -626,7 +626,14 @@
 <p>Start the game, move or rotate the piece, and drop it. The Rust model owns timing, board state, and collision detection. The drawing surface receives the updated board. Pause and return to the game to exercise lifecycle behavior.</p>
 <p><a href="screens.html#model-message-and-update">Model, message, and update</a> explains how the buttons and swipes reach the same game rules.</p>
 <h2 id="field-catch">Field Catch<a class="headerlink" href="#field-catch" title="Permanent link">&para;</a></h2>
-<p><img src="assets/field-catch.webp" width="210" loading="lazy" alt="Create and join actions above the Field Catch map"></p>
+<div class="gallery-exhibits">
+  <figure><a href="assets/field-catch-aim.webp"><img src="assets/field-catch-aim.webp" loading="lazy" alt="Aiming puck and kick guide beside the ball on the map"></a><figcaption>Aim a kick</figcaption></figure>
+  <figure><a href="assets/field-catch-flight.webp"><img src="assets/field-catch-flight.webp" loading="lazy" alt="Ball in flight with height and distance from the catcher"></a><figcaption>Track the flight</figcaption></figure>
+  <figure><a href="assets/field-catch-catch.webp"><img src="assets/field-catch-catch.webp" loading="lazy" alt="Landing flag, catch timer and speed bonus on the catcher’s map"></a><figcaption>Reach the landing flag</figcaption></figure>
+  <figure><a href="assets/field-catch-field-settings.webp"><img src="assets/field-catch-field-settings.webp" loading="lazy" alt="Field invitation with maximum kick distance and wind menus"></a><figcaption>Choose field conditions</figcaption></figure>
+  <figure><a href="assets/field-catch-lobby.webp"><img src="assets/field-catch-lobby.webp" loading="lazy" alt="Create a Field and Join a Field actions below the map"></a><figcaption>Play with a partner</figcaption></figure>
+  <figure><a href="assets/field-catch-rules.webp"><img src="assets/field-catch-rules.webp" loading="lazy" alt="Game rules sheet describing both roles and the speed bonus"></a><figcaption>Learn the rules</figcaption></figure>
+</div>
 <p>Create or join a Field to play with a partner. Field Catch uses typed UI messages and WebRTC callbacks, and returns native effects from its reducer. <a href="screens.html#model-message-and-update">Model, message, and update</a></p>
 <h2 id="run-regression-checks">Run regression checks<a class="headerlink" href="#run-regression-checks" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--release<span class="w"> </span>--locked<span class="w"> </span>--<span class="w"> </span>--test-threads<span class="o">=</span><span class="m">1</span>
