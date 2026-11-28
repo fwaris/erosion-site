@@ -508,6 +508,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -597,10 +663,10 @@
 
 <h1 id="layout-and-styling">Layout and styling<a class="headerlink" href="#layout-and-styling" title="Permanent link">&para;</a></h1>
 <h2 id="strata-starter-style">Strata starter style<a class="headerlink" href="#strata-starter-style" title="Permanent link">&para;</a></h2>
-<p>Use <code>strata_screen</code> for Chalk and Basalt. All five sample apps use this builder. Tap the half-filled circle (the <strong>Theme</strong> button) in the navigation header to select <strong>System</strong>, <strong>Chalk</strong>, or <strong>Basalt</strong>. System follows the device appearance. Each sample remembers its own choice across launches.</p>
+<p>Use <code>strata_screen</code> for Chalk and Basalt. The generated counter and all three samples use this builder. Tap the half-filled circle (the <strong>Theme</strong> button) in the navigation header to select <strong>System</strong>, <strong>Chalk</strong>, or <strong>Basalt</strong>. System follows the device appearance. Each sample remembers its own choice across launches.</p>
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::</span><span class="n">widgets</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">};</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"Field note"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">(</span><span class="s">"Field note"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
 <span class="w">    </span><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="s">"Note title"</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">),</span>
 <span class="w">    </span><span class="n">button</span><span class="p">(</span><span class="s">"save"</span><span class="p">,</span><span class="w"> </span><span class="s">"Save note"</span><span class="p">),</span>
 <span class="p">]);</span>

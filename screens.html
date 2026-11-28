@@ -344,6 +344,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#where-messages-come-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where messages come from
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-the-games-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       How the games use it
@@ -361,24 +370,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-a-control-becomes-a-native-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a control becomes a native view
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-a-keyed-editor" class="md-nav__link">
+  <a href="#keep-an-editor-focused" class="md-nav__link">
     <span class="md-ellipsis">
-      Build a keyed editor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handle-native-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handle native input
+      Keep an editor focused
     </span>
   </a>
   
@@ -394,9 +403,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#register-a-separate-app" class="md-nav__link">
+  <a href="#draw-a-custom-shape" class="md-nav__link">
     <span class="md-ellipsis">
-      Register a separate app
+      Draw a custom shape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app-owned-native-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      App-owned native surfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-a-new-feature-belongs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where a new feature belongs
     </span>
   </a>
   
@@ -532,6 +559,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -569,6 +662,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#where-messages-come-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where messages come from
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-the-games-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       How the games use it
@@ -586,24 +688,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-a-control-becomes-a-native-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a control becomes a native view
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-a-keyed-editor" class="md-nav__link">
+  <a href="#keep-an-editor-focused" class="md-nav__link">
     <span class="md-ellipsis">
-      Build a keyed editor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handle-native-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handle native input
+      Keep an editor focused
     </span>
   </a>
   
@@ -619,9 +721,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#register-a-separate-app" class="md-nav__link">
+  <a href="#draw-a-custom-shape" class="md-nav__link">
     <span class="md-ellipsis">
-      Register a separate app
+      Draw a custom shape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app-owned-native-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      App-owned native surfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-a-new-feature-belongs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where a new feature belongs
     </span>
   </a>
   
@@ -644,14 +764,19 @@
 
 
 <h1 id="screens-and-state">Screens and state<a class="headerlink" href="#screens-and-state" title="Permanent link">&para;</a></h1>
-<p>A generated app supplies a model, an update function, and a view. Erosion turns the view into native controls and delivers their bound messages to the app. For direct control of rendering and event dispatch, an app can implement <code>runtime::Application</code>.</p>
+<p>Open <code>src/lib.rs</code> in a generated app. Everything you need to change the counter is in that file, including its test. The same Rust view runs on both phones. Erosion creates the native buttons and labels and keeps them in sync with the model.</p>
 <h2 id="model-message-and-update">Model, message, and update<a class="headerlink" href="#model-message-and-update" title="Permanent link">&para;</a></h2>
-<p>Use this optional pattern when several controls or events can change the same state. The <strong>model</strong> holds the current state. A <strong>message</strong> (<code>Msg</code>) names an intent. <strong>Update</strong> applies that intent to the model, and the <strong>view</strong> describes the screen from the resulting state.</p>
-<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span><span class="n">declarative</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">ViewScreen</span><span class="p">},</span><span class="w"> </span><span class="n">design</span><span class="p">::</span><span class="n">Role</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">};</span>
+<p>Follow <strong>Increment</strong> through the starter. The button binds a press to <code>Msg::Increment</code>. The app decides what that message does in <code>update</code>. When <code>view</code> reads the new count, Erosion compares the screen with the previous one and sends the changed label to the host.</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span>
+<span class="w">    </span><span class="n">declarative</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">strata_screen</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">ViewScreen</span><span class="p">},</span>
+<span class="w">    </span><span class="n">design</span><span class="p">::</span><span class="n">Role</span><span class="p">,</span>
+<span class="w">    </span><span class="n">erosion_app</span><span class="p">,</span>
+<span class="w">    </span><span class="n">view</span><span class="p">,</span>
+<span class="p">};</span>
 
 <span class="cp">#[derive(Default)]</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">Model</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+<span class="w">    </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="kt">u64</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="cp">#[derive(Clone)]</span>
@@ -661,22 +786,60 @@
 
 <span class="k">fn</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">Model</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="nc">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Model</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="nc">model</span><span class="p">.</span><span class="n">count</span><span class="p">.</span><span class="n">saturating_add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="nc">model</span><span class="p">.</span><span class="n">count</span><span class="p">.</span><span class="n">saturating_add</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">        </span><span class="p">},</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">fn</span><span class="w"> </span><span class="nf">counter</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">Model</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">ViewScreen</span><span class="o">&lt;</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="k">fn</span><span class="w"> </span><span class="nf">view</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">Model</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">ViewScreen</span><span class="o">&lt;</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">view</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">strata_screen</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"Counter"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">text</span><span class="p">(</span><span class="s">"count"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">count</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"> </span><span class="n">Role</span><span class="p">::</span><span class="n">Body</span><span class="p">);</span>
-<span class="w">            </span><span class="n">button</span><span class="p">(</span><span class="s">"add"</span><span class="p">,</span><span class="w"> </span><span class="s">"Add one"</span><span class="p">).</span><span class="n">on_press</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="p">);</span>
+<span class="w">        </span><span class="n">strata_screen</span><span class="p">(</span><span class="fm">include_str!</span><span class="p">(</span><span class="s">"../app-name.txt"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">text</span><span class="p">(</span><span class="s">"count"</span><span class="p">,</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Count: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="n">Role</span><span class="p">::</span><span class="n">Title</span><span class="p">);</span>
+<span class="w">            </span><span class="n">button</span><span class="p">(</span><span class="s">"increment"</span><span class="p">,</span><span class="w"> </span><span class="s">"Increment"</span><span class="p">).</span><span class="n">on_press</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">erosion_ui</span><span class="p">::</span><span class="n">erosion_app</span><span class="o">!</span><span class="p">(</span><span class="n">Model</span><span class="p">::</span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">update</span><span class="p">,</span><span class="w"> </span><span class="n">counter</span><span class="p">);</span>
+<span class="n">erosion_app</span><span class="o">!</span><span class="p">(</span><span class="n">Model</span><span class="p">::</span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">update</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">);</span>
+
+<span class="cp">#[cfg(test)]</span>
+<span class="k">mod</span><span class="w"> </span><span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="w">    </span><span class="cp">#[test]</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">increment_updates_count</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Model</span><span class="p">::</span><span class="n">default</span><span class="p">(),</span><span class="w"> </span><span class="n">Msg</span><span class="p">::</span><span class="n">Increment</span><span class="p">);</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>The single-screen adapter uses route zero and keeps one set of mounted bindings per app instance. To handle lifecycle, Back, or device replies, implement <code>app::DeclarativeApp</code> with your own message type. Its <code>update</code> receives bound messages and its <code>on_host_event</code> receives unbound <code>HostEvent</code> values. Return <code>Box::new(AppAdapter::new(app))</code> from the native factory. Override the route and presentation hooks when your model owns a navigation stack.</p>
+<h3 id="where-messages-come-from">Where messages come from<a class="headerlink" href="#where-messages-come-from" title="Permanent link">&para;</a></h3>
+<p>For the counter, every change begins with a tap. Other screens can change while the user’s hands are off the phone. Gallery also needs to know when the OS finishes a clipboard request and when the user presses Back. It implements <code>DeclarativeApp</code> and registers an <code>AppAdapter::new(app)</code> in its native factory. The adapter keeps a <code>MountedView</code> for that app instance and dispatches each input once.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where it goes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A press on a button with <code>.on_press(Msg::Save)</code></td>
+<td>The adapter resolves the binding and calls the app’s <code>update(Msg::Save)</code>.</td>
+</tr>
+<tr>
+<td>A quote from Live monitor’s worker</td>
+<td>The worker queues a typed message through <code>AppSender</code>. Erosion wakes the UI loop and calls the app’s <code>update</code> method.</td>
+</tr>
+<tr>
+<td>System Back or a clipboard result</td>
+<td>The app’s <code>on_host_event</code> receives the unbound <code>HostEvent</code>. The app can pop a page or match a result to a pending request.</td>
+</tr>
+</tbody>
+</table>
+<p>To follow a message that starts outside the UI, open the <a href="navigation.html#receive-messages-from-background-work">Live monitor walkthrough</a>. It covers what happens when a worker finishes after the user has left the screen.</p>
+<p>An app can also supply a snapshot, request clock ticks, or keep the screen awake during a match. These hooks have defaults, so a new feature only needs the ones it uses. The underlying <code>runtime::Application</code> trait is available if you want to implement dispatch and rendering yourself.</p>
+<p>Gallery uses <code>toggle(...).on_toggle(Msg::Toggle)</code>, <code>slider(...).on_slide(Msg::Slide)</code>, and <code>choice_list(...).on_pick(Msg::Pick)</code>. Their messages carry a Boolean, a <code>u16</code> value, and a stable <code>u32</code> item ID respectively. Both <code>field</code> and <code>date</code> deliver strings through <code>on_input</code>. Apply an app-selected palette with <code>strata_screen(title).theme(theme)</code>.</p>
 <h3 id="how-the-games-use-it">How the games use it<a class="headerlink" href="#how-the-games-use-it" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Falling Blocks</strong> binds the Left button to <code>Msg::Move(Move::Left)</code>. A left swipe is classified as <code>Move::Left</code> and reaches the same <code>Game::apply_move</code> rule. The game owns its board, score, and phase. The application adapter handles clock ticks, navigation, and saving the high score. Start with <code>samples/falling-blocks/src/view.rs</code> and follow the binding into <code>src/lib.rs</code>.</li>
@@ -684,30 +847,21 @@
 </ul>
 <h3 id="compose-the-view">Compose the view<a class="headerlink" href="#compose-the-view" title="Permanent link">&para;</a></h3>
 <p>A child block accepts immutable <code>let</code> bindings, <code>if let</code>, <code>if/else</code>, <code>match</code> with braced arms, and <code>for</code>. End leaf and component expressions with a semicolon. Return a <code>ViewNode&lt;Msg&gt;</code> for one control or a <code>Fragment&lt;Msg&gt;</code> for several siblings. A fragment adds no native container. Use item-derived keys in loops and give every interactive source a unique key across the whole screen, including toolbar and accessibility actions.</p>
-<p>Use a <code>toolbar { ... }</code> block on the screen root. For example, a call action can be declared as <code>toolbar_item("video-call", "Video call", "video_camera").enabled(can_call).on_press(Msg::VideoCall);</code>. Toolbar conditions follow the same rules as body conditions. Import <code>widgets::ViewModifiers</code> for style methods such as <code>.rounded(12)</code>. An existing keyed <code>Node</code> can be inserted directly. Wrap it with <code>from_node</code> to attach a typed native event binding. The complete example lives in <code>samples/field-catch/src/view.rs</code>.</p>
-<h2 id="build-a-keyed-editor">Build a keyed editor<a class="headerlink" href="#build-a-keyed-editor" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span>
-<span class="w">    </span><span class="n">widgets</span><span class="p">::{</span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="n">column</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">ViewModifiers</span><span class="p">},</span>
-<span class="w">    </span><span class="n">Node</span><span class="p">,</span>
-<span class="p">};</span>
-
-<span class="k">fn</span><span class="w"> </span><span class="nf">editor</span><span class="p">(</span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">column</span><span class="p">(</span><span class="s">"editor"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
-<span class="w">        </span><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="s">"Note title"</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">),</span>
-<span class="w">        </span><span class="n">button</span><span class="p">(</span><span class="s">"save"</span><span class="p">,</span><span class="w"> </span><span class="s">"Save note"</span><span class="p">).</span><span class="n">rounded</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
-<span class="w">    </span><span class="p">])</span>
-<span class="p">}</span>
+<p>Place header actions in the screen’s <code>toolbar { ... }</code> block. Field Catch enables its video call button when a call is available. The label, availability, and message sit together in the view:</p>
+<div class="highlight"><pre><span></span><code><span class="n">toolbar_item</span><span class="p">(</span><span class="s">"video-call"</span><span class="p">,</span><span class="w"> </span><span class="s">"Video call"</span><span class="p">,</span><span class="w"> </span><span class="s">"video_camera"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enabled</span><span class="p">(</span><span class="n">can_call</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">on_press</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">VideoCall</span><span class="p">);</span>
 </code></pre></div>
-<p>Place <code>editor(&amp;self.title)</code> in the children passed to <code>widgets::screen</code>. Give each sibling a unique, stable key. A key describes a control’s identity across renders. Changing it can replace the native field and interrupt an edit.</p>
-<h2 id="handle-native-input">Handle native input<a class="headerlink" href="#handle-native-input" title="Permanent link">&para;</a></h2>
-<p>In an existing app model with a <code>title: String</code> field and a <code>save()</code> method, the update branches for the editor look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Input</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"title"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
-<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Press</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"save"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">save</span><span class="p">(),</span>
-<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
+<h3 id="how-a-control-becomes-a-native-view">How a control becomes a native view<a class="headerlink" href="#how-a-control-becomes-a-native-view" title="Permanent link">&para;</a></h3>
+<p>A <code>Control</code> describes what to render. For a map, that includes pins and overlays. A pin can have a glyph, and a circle overlay carries its center, color, and radius in metres. For a button, the control holds its label and optional icon.</p>
+<p>A <code>Node</code> places one control in the screen tree and gives it a stable key, styling, and accessibility information. A typed builder such as <code>button(...)</code> lets you bind a Rust message alongside that node. Erosion keeps the binding in Rust and sends the screen description to the phone. When the phone reports a press, the adapter uses the key to find the message.</p>
+<p>For a drawing surface, start with <code>canvas(key, width, height)</code>, supply the shapes, and bind pointer input with <code>.on_pointer(...)</code>. For a map, bind <code>.on_map_idle(...)</code> to remember its viewport or <code>.on_map_heading(...)</code> to follow rotation. Field Catch uses the heading to keep its aiming puck aligned with the map.</p>
+<h2 id="keep-an-editor-focused">Keep an editor focused<a class="headerlink" href="#keep-an-editor-focused" title="Permanent link">&para;</a></h2>
+<p>Give an editable field a key that stays the same as its text changes. The native editor can then keep its focus and selection when Rust renders again. Bind the edit next to the field:</p>
+<div class="highlight"><pre><span></span><code><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="s">"Note title"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">model</span><span class="p">.</span><span class="n">title</span><span class="p">).</span><span class="n">on_input</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">TitleChanged</span><span class="p">);</span>
+<span class="n">button</span><span class="p">(</span><span class="s">"save"</span><span class="p">,</span><span class="w"> </span><span class="s">"Save note"</span><span class="p">).</span><span class="n">on_press</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">Save</span><span class="p">);</span>
 </code></pre></div>
-<p>For a <code>Control::List</code>, give every <code>Item</code> its own persistent numeric ID. Handle <code>HostEvent::Pick { key, id }</code> using that ID, so filtering or reordering rows still opens the correct item.</p>
+<p>Here <code>Msg::TitleChanged(String)</code> carries the new text into the app. A keyboard submit can send the same <code>Msg::Save</code> as the button. For a list, give each item a persistent ID and use <code>.on_pick(...)</code> to receive it. That way the same item opens after the user sorts or filters the list.</p>
 <h2 id="choose-an-authoring-style">Choose an authoring style<a class="headerlink" href="#choose-an-authoring-style" title="Permanent link">&para;</a></h2>
 <p>Widget functions and chainable modifiers cover common controls. Use <code>Control</code> variants directly for more specialized declarations. The optional <code>ui!</code> macro constructs the same keyed nodes:</p>
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span><span class="n">ui</span><span class="p">,</span><span class="w"> </span><span class="n">widgets</span><span class="p">::</span><span class="n">button</span><span class="p">};</span>
@@ -717,8 +871,26 @@
 <span class="p">]);</span>
 </code></pre></div>
 <p>The engine compares successive screen descriptions and sends changes over a revisioned bridge. The declarative API, individual widget constructors and both macros use that update path.</p>
-<h2 id="register-a-separate-app">Register a separate app<a class="headerlink" href="#register-a-separate-app" title="Permanent link">&para;</a></h2>
-<p>Add a crate under <code>samples/</code>, list it in the workspace, and depend on <code>erosion-ui</code> by path. Implement <code>Application</code> and export its factory with <code>erosion_native_host::export_app!</code>. Add the corresponding Android module in <code>android/mobile/build.gradle</code> and a dedicated XcodeGen project under <code>ios/</code> (for example, <code>ios/Gallery.yml</code>). Use the same app selector for both hosts. After this initial setup, ordinary screens can be added entirely within the Rust crate.</p>
+<h2 id="draw-a-custom-shape">Draw a custom shape<a class="headerlink" href="#draw-a-custom-shape" title="Permanent link">&para;</a></h2>
+<p>Build a <code>CanvasPath</code> in the canvas's logical coordinates and put the resulting <code>Draw</code> in the <code>shapes</code> list of <code>Control::Canvas</code>. This leaf has a cubic curve on one side and a quadratic curve on the other.</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::</span><span class="n">design</span><span class="p">::</span><span class="n">CanvasPath</span><span class="p">;</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CanvasPath</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mf">10.</span><span class="p">,</span><span class="w"> </span><span class="mf">50.</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">cubic_to</span><span class="p">(</span><span class="mf">10.</span><span class="p">,</span><span class="w"> </span><span class="mf">20.</span><span class="p">,</span><span class="w"> </span><span class="mf">40.</span><span class="p">,</span><span class="w"> </span><span class="mf">10.</span><span class="p">,</span><span class="w"> </span><span class="mf">70.</span><span class="p">,</span><span class="w"> </span><span class="mf">10.</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">quad_to</span><span class="p">(</span><span class="mf">65.</span><span class="p">,</span><span class="w"> </span><span class="mf">50.</span><span class="p">,</span><span class="w"> </span><span class="mf">10.</span><span class="p">,</span><span class="w"> </span><span class="mf">50.</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">shapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
+<span class="w">    </span><span class="n">leaf</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">fill</span><span class="p">(</span><span class="s">"#568865"</span><span class="p">),</span>
+<span class="w">    </span><span class="n">leaf</span><span class="p">.</span><span class="n">stroke</span><span class="p">(</span><span class="s">"#294B35"</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="p">),</span>
+<span class="p">];</span>
+</code></pre></div>
+<p>Curve arguments give the control points first and the endpoint last. Use <code>line_to</code> for straight edges and <code>move_to</code> for another contour. Fills use the nonzero winding rule, so an inner contour drawn in the opposite direction makes a hole. Shapes paint in list order. Stroke widths use canvas units.</p>
+<h2 id="app-owned-native-surfaces">App-owned native surfaces<a class="headerlink" href="#app-owned-native-surfaces" title="Permanent link">&para;</a></h2>
+<p>Field Catch projects its Rust match into a serializable AR scene. It emits a <code>Control::NativeSurface</code> with the renderer name <code>catch-field</code>, a key for the mounted instance, and its scene as JSON properties. The native host creates the view and delivers updated properties on each render. Field Catch implements the renderer in its Android activity and its iOS scene extension. The game owns camera sharing, the ball trajectory, and cleanup when the surface leaves the window.</p>
+<h2 id="where-a-new-feature-belongs">Where a new feature belongs<a class="headerlink" href="#where-a-new-feature-belongs" title="Permanent link">&para;</a></h2>
+<p>A new game move, editing command, or validation rule can live entirely in your app’s Rust code. Field Catch adds its own network messages this way. Its map and AR views both read the same match, so switching views preserves the flight in progress.</p>
+<p>For an OS feature, first look for an existing <a href="devices.html">device operation</a>. To expose a new capability to every Erosion app, define its request and result in the framework and implement it in the native hosts. For a renderer specific to one app, Field Catch’s AR surface shows how to keep the native implementation alongside the game.</p>
+<p>Use the <a href="getting-started.html#create-a-standalone-app">standalone app generator</a> to start another application.</p>
 
 
 

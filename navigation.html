@@ -389,6 +389,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#give-each-section-its-own-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Give each section its own model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receive-messages-from-background-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receive messages from background work
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive messages from background work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pause-leave-and-come-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause, leave, and come back
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#request-a-native-operation" class="md-nav__link">
     <span class="md-ellipsis">
       Request a native operation
@@ -490,6 +523,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -522,6 +621,39 @@
       Push and pop a page
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#give-each-section-its-own-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Give each section its own model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receive-messages-from-background-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receive messages from background work
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive messages from background work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pause-leave-and-come-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause, leave, and come back
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -560,19 +692,69 @@
 
 
 <h1 id="navigation-and-effects">Navigation and effects<a class="headerlink" href="#navigation-and-effects" title="Permanent link">&para;</a></h1>
+<p>Imagine editing a task on a phone. You expect Back to return you to the same filtered list. You might also expect Back to throw away the title you just typed. Both behaviors come from where the app stores those two values. The Projects exhibit lets you try them side by side. In Live monitor, leaving the screen also stops a worker that has been sending it fresh prices.</p>
 <h2 id="push-and-pop-a-page">Push and pop a page<a class="headerlink" href="#push-and-pop-a-page" title="Permanent link">&para;</a></h2>
-<p>Keep <code>Routes&lt;Page&gt;</code> in the Rust app model. Start with <code>Routes::new(Page::Library)</code>. Match the page returned by <code>nav.current()</code> to build its screen, and return <code>nav.presentation()</code> from the app’s <code>presentation()</code> method.</p>
-<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Press</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"clip"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">nav</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Page</span><span class="p">::</span><span class="n">Player</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span><span class="w"> </span><span class="n">Transition</span><span class="p">::</span><span class="n">Fade</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">HostEvent</span><span class="p">::</span><span class="n">Back</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">nav</span><span class="p">.</span><span class="n">pop</span><span class="p">(),</span>
-<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span>
+<p>Gallery keeps its search text in the app model and its page stack in <code>Routes&lt;Page&gt;</code>. Search for “slider,” open the matching exhibit, then go back. The catalog still shows the same search because both pages use the same app instance.</p>
+<p>To add a destination, give it a variant in your app’s <code>Page</code> enum. A button can bind to <code>Msg::Open(Page::Detail)</code>. Handle that message in <code>DeclarativeApp::update</code> by calling <code>self.nav.push(page)</code>. In <code>view</code>, match on <code>self.nav.current()</code> to choose the content. The navigation hook passes the stack to Erosion:</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">navigation</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Navigation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">self</span><span class="p">.</span><span class="n">nav</span><span class="p">.</span><span class="n">navigation</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Controls Gallery uses this pattern to open an exhibit. Use <code>Transition::System</code> for platform navigation, <code>Fade</code> for a crossfade, or <code>Immediate</code> for a synchronous page change. Return the route instance ID from <code>Application::route</code>. Late events from a previous route are discarded by the engine.</p>
+<p>Handle system Back in <code>on_host_event</code> with <code>self.nav.pop()</code>. Use <code>present(page)</code> for a sheet or <code>push_with_transition(page, Transition::Fade)</code> for a fade. Field Catch also calls <code>handle_root_back()</code> on the returned navigation value so it can leave AR or end a session from the root page.</p>
+<p>Erosion gives each visit its own internal ID. If a late tap arrives from the first visit to Detail after a second visit has opened, the runtime discards it. The app just works with <code>Page::Detail</code>. A device reply has a different lifetime: a save that belongs to a document may still matter after the editor closes.</p>
+<h2 id="give-each-section-its-own-model">Give each section its own model<a class="headerlink" href="#give-each-section-its-own-model" title="Permanent link">&para;</a></h2>
+<p>Open <strong>Controls Gallery → Projects</strong>. Filter the list to “garden” and open the first project. Its editor starts with a copy of the saved task. Back drops the draft. Save copies the edited title into the Gallery’s records before popping the editor. Back from the detail page reveals the original filter. Leave Projects entirely and the next visit starts with an empty filter.</p>
+<p>The application still has one root model. Its route stack owns just the pages the user has opened. A page can carry ordinary Rust values. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">ProjectsPage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">Detail</span><span class="p">(</span><span class="kt">usize</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Editor</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">project</span><span class="p">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">draft</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>At the moment the editor opens, three pages are on the Projects stack. Here’s what each one owns and when the user will see that value again.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Where Gallery keeps it</th>
+<th>What happens on Back</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“garden” in the filter field</td>
+<td>The list page</td>
+<td>Opening a project covers the list. Returning to it reveals the same filter. Leaving Projects drops it.</td>
+</tr>
+<tr>
+<td>The title being typed</td>
+<td>The editor page</td>
+<td>Closing the editor drops its draft. Opening another editor makes a fresh copy of the saved title.</td>
+</tr>
+<tr>
+<td>The saved task title</td>
+<td>The Gallery’s project records</td>
+<td>Save updates the record before popping the editor. The detail page then renders the new title. It lasts for this app session.</td>
+</tr>
+</tbody>
+</table>
+<p>A large app can follow the same pattern one section at a time. Borrow the active page with <code>nav.current()</code> to render it and <code>nav.current_mut()</code> to edit it. Popping a page drops the Rust values it owns. Falling Blocks allocates its board when the player starts a game. Its Play page owns the board through a <code>Box</code>, so returning to the lobby releases the board while the app keeps the high score. To keep a value through process exit, save it separately. Falling Blocks writes the high score to a file.</p>
+<p>Projects also has its own messages. In <code>samples/gallery/src/projects.rs</code>, the editor binds the Save button to the section’s <code>Msg::Save</code>. The Gallery wraps the whole screen with <code>.map_msg(Msg::Projects)</code>. A tap then reaches the Gallery as a Projects message, and the Gallery passes it to the section’s update function. This lets someone editing the task feature find its fields, buttons, and rules together.</p>
+<h2 id="receive-messages-from-background-work">Receive messages from background work<a class="headerlink" href="#receive-messages-from-background-work" title="Permanent link">&para;</a></h2>
+<p>Open <strong>Controls Gallery → Live monitor</strong> and leave the phone untouched. Once a second, a Rust worker generates prices for three fictional stocks. When a batch arrives, the prices and the received-batch count change together. This example runs offline.</p>
+<p>A button press already arrives on the phone’s UI thread. The quote worker runs on another thread, and the phone may be idle when its next batch is ready. Erosion supplies an <code>AppSender&lt;Self::Msg&gt;</code> in the app’s <code>on_attach</code> hook. The app gives the worker a clone. Sending a message wakes the native UI loop, which delivers the message to the same <code>update</code> method that handles the Pause button. The worker can finish its job without touching a native control or locking the dashboard model.</p>
+<p>Here’s the sending end from <code>samples/gallery/src/monitor.rs</code>. It runs inside the worker’s loop:</p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">sender</span><span class="p">.</span><span class="n">try_send</span><span class="p">(</span><span class="n">Msg</span><span class="p">::</span><span class="n">QuoteBatch</span><span class="p">(</span><span class="n">run</span><span class="p">,</span><span class="w"> </span><span class="n">quotes</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">TrySendError</span><span class="p">::</span><span class="n">Full</span><span class="p">(</span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">TrySendError</span><span class="p">::</span><span class="n">Closed</span><span class="p">(</span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">break</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A successful send puts the batch in a bounded queue. If the queue fills, the monitor skips that batch because another price will arrive shortly. An app sending an edit that must be saved would need a different policy. Both error variants return the original message so the producer can keep it. A closed sender means its host attachment has ended and this worker can exit. The example uses a standard Rust thread. An app that already uses Tokio can give the same sender to one of its tasks.</p>
+<h3 id="pause-leave-and-come-back">Pause, leave, and come back<a class="headerlink" href="#pause-leave-and-come-back" title="Permanent link">&para;</a></h3>
+<p>Tap <strong>Pause feed</strong>. The prices stay on screen because the route still owns the dashboard model. The app drops a separate cancellation handle, which wakes the worker and ends its loop. Resume starts another worker from the displayed prices. Putting the app in the background also stops the feed. On returning, a paused dashboard stays paused. Back closes the route altogether, so the next visit starts at zero batches.</p>
+<p>There’s a small race worth testing in your own app. A worker could queue one last batch just before the user taps Pause. By the time the phone delivers it, the user may already have tapped Resume. Live monitor gives each run an ID and checks it in <code>Dashboard::receive</code>. Only a batch from the current run can change the displayed prices. If the native host is recreated, Erosion closes the old sender before calling <code>on_detach</code>. The next <code>on_attach</code> supplies a fresh sender.</p>
 <h2 id="request-a-native-operation">Request a native operation<a class="headerlink" href="#request-a-native-operation" title="Permanent link">&para;</a></h2>
-<p>The app queues effects and drains them in <code>effects()</code>. Assign a fresh request ID for each operation and remember which request belongs to the current screen.</p>
+<p>The app queues effects and drains them in <code>effects()</code>. Assign a fresh request ID for each operation and store it with the domain data that will receive the result. A save can update an item while its editor is closed. Reopening the editor renders the saved value. If leaving should abandon an operation, clear the pending request in update and issue <code>Effect::CancelCapability { id }</code> to stop the native work.</p>
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">erosion_ui</span><span class="p">::{</span><span class="n">capabilities</span><span class="p">::</span><span class="n">Operation</span><span class="p">,</span><span class="w"> </span><span class="n">runtime</span><span class="p">::</span><span class="n">Effect</span><span class="p">};</span>
 <span class="kd">let</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Effect</span><span class="p">::</span><span class="n">Capability</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">:</span><span class="w"> </span><span class="nc">Operation</span><span class="p">::</span><span class="n">PickPhoto</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>

@@ -403,9 +403,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-an-app" class="md-nav__link">
+  <a href="#enable-capabilities-in-a-framework-sample" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable an app
+      Enable capabilities in a framework sample
     </span>
   </a>
   
@@ -490,6 +490,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -517,9 +583,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-an-app" class="md-nav__link">
+  <a href="#enable-capabilities-in-a-framework-sample" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable an app
+      Enable capabilities in a framework sample
     </span>
   </a>
   
@@ -560,9 +626,9 @@
 
 
 <h1 id="using-device-capabilities-from-rust">Using device capabilities from Rust<a class="headerlink" href="#using-device-capabilities-from-rust" title="Permanent link">&para;</a></h1>
-<p>Controls Gallery → Device utilities exercises clipboard, Keychain/Keystore, authentication and haptics with disposable sample data. Capability calls use the same route and revision bridge as native controls.</p>
-<h2 id="enable-an-app">Enable an app<a class="headerlink" href="#enable-an-app" title="Permanent link">&para;</a></h2>
-<p>Use a small <code>.xcconfig</code> under <code>ios/config</code> named for the capitalized Android Gradle module (for example, <code>gallery</code> → <code>Gallery.xcconfig</code>). The Gradle build reads the same simple <code>NAME = value</code> declarations as Xcode. Set the iOS target's Debug and Release config files to this file, apply the <code>DeviceCapabilities</code> XcodeGen template and expose <code>MRustCapabilities</code> and the applicable usage-description settings in the target Info properties, as in Gallery and Field Catch. These are packaging steps for a new application. A new Rust screen in an enabled app needs only Rust changes.</p>
+<p>Controls Gallery → Device utilities exercises clipboard, Keychain/Keystore, authentication and haptics with disposable sample data. Erosion delivers pending capability results to the app across page changes.</p>
+<h2 id="enable-capabilities-in-a-framework-sample">Enable capabilities in a framework sample<a class="headerlink" href="#enable-capabilities-in-a-framework-sample" title="Permanent link">&para;</a></h2>
+<p>Use a small <code>.xcconfig</code> under <code>ios/config</code> named for the capitalized Android Gradle module (for example, <code>gallery</code> → <code>Gallery.xcconfig</code>). The Gradle build reads the same simple <code>NAME = value</code> declarations as Xcode. Set the iOS target's Debug and Release config files to this file, apply the <code>DeviceCapabilities</code> XcodeGen template and expose <code>MRustCapabilities</code> and the applicable usage-description settings in the target Info properties, as in Gallery and Field Catch. The standalone counter has its own Gradle and XcodeGen projects. When adding a capability there, use the sample manifest, usage descriptions, and platform dependencies for that feature as a reference. Once the host supports it, another Rust screen in the same app can use it too.</p>
 <table>
 <thead>
 <tr>
@@ -581,13 +647,13 @@
 </tr>
 <tr>
 <td><code>MRUST_MAP_STYLE</code></td>
-<td>Android style filename in the app assets or an HTTPS style URL. The demo loads worldwide vector tiles and labels from <a href="https://openfreemap.org/quick_start/">OpenFreeMap</a> as the camera moves. Uncached regions need internet access. The bundled offline map covers central San Francisco with 4,827 active street segments from San Francisco Public Works. Street geometry is distributed under the Open Data Commons Public Domain Dedication and License. <a href="https://data.sf.gov/d/3psu-pn9h">DataSF source</a>. Supply licensed tiles and attribution for a production basemap.</td>
+<td>MapLibre style filename in the app assets or an HTTPS style URL. The MapLibre build loads worldwide vector tiles and labels from <a href="https://openfreemap.org/quick_start/">OpenFreeMap</a> as the camera moves. Uncached regions need internet access. The bundled offline map covers central San Francisco with 4,827 active street segments from San Francisco Public Works. Street geometry is distributed under the Open Data Commons Public Domain Dedication and License. <a href="https://data.sf.gov/d/3psu-pn9h">DataSF source</a>. Supply licensed tiles and attribution for a production basemap.</td>
 </tr>
 </tbody>
 </table>
-<p>Gradle merges permissions for enabled capabilities and installs a private FileProvider for the camera and share sheet. Android uses MapLibre Native 11.8.0 only in map-enabled apps. iOS uses system MapKit. A map of saved pins works with location access denied. Device permission prompts occur when the user invokes the feature.</p>
+<p>Gradle merges permissions for enabled capabilities and installs a private FileProvider for the camera and share sheet. Android map-enabled samples use MapLibre by default. Field Catch can select Google Maps at build time when the build machine has a key in <code>~/.config/erosion/android_map_key.txt</code>. iOS uses system MapKit. A map of saved pins works with location access denied. Device permission prompts occur when the user invokes the feature.</p>
 <h2 id="issue-requests">Issue requests<a class="headerlink" href="#issue-requests" title="Permanent link">&para;</a></h2>
-<p>Keep an increasing request ID in the app model. Push an <code>Effect::Capability { id, request }</code> into the app's effects queue and handle <code>HostEvent::CapabilityResult { id, outcome }</code> in <code>update</code>. Compare the ID with the operation you are expecting. Capture the ID before opening another screen. Cancel with <code>Effect::CancelCapability { id }</code>. Camera, picker, and share UI can move the app out of the foreground while an operation is pending.</p>
+<p>Keep an increasing request ID in the app model. Push an <code>Effect::Capability { id, request }</code> into the app's effects queue and handle <code>HostEvent::CapabilityResult { id, outcome }</code> in <code>DeclarativeApp::on_host_event</code>. Compare the ID with the operation you are expecting. Store the ID with its owning model data until completion or abandonment. Cancel with <code>Effect::CancelCapability { id }</code>. Camera, picker, and share UI can move the app out of the foreground while an operation is pending.</p>
 <table>
 <thead>
 <tr>
@@ -614,11 +680,11 @@
 </tr>
 <tr>
 <td>Get location</td>
-<td><code>Operation::Locate { watch: false }</code> returns one <code>Fix</code>. With <code>watch: true</code> it emits fixes until canceled, backgrounded, or its owner leaves. Each includes coordinates, timestamp, accuracy in meters, and reduced-accuracy status.</td>
+<td><code>Operation::Locate { watch: false }</code> returns one <code>Fix</code>. With <code>watch: true</code> it emits fixes until canceled or backgrounded. Each includes coordinates, timestamp, accuracy in meters, and reduced-accuracy status.</td>
 </tr>
 <tr>
 <td>Display a map</td>
-<td><code>Control::Map { center, zoom: 13.0, recenter: 0, pins }.key("map")</code>. Give it a height. Keep pin IDs and the control key stable; increment <code>recenter</code> for an explicit camera move. Handle <code>HostEvent::Pick</code> for a selected pin and <code>HostEvent::MapIdle</code> for the final viewport.</td>
+<td><code>map("field", Map { center, zoom: 13.0, recenter: 0, pins, overlays })</code> takes its map data from <code>erosion_ui::map</code>. Give the control a height or a flexible parent. Keep pin IDs stable and increment <code>recenter</code> to move the camera explicitly. Bind <code>.on_map_idle(...)</code> for center and zoom or <code>.on_map_heading(...)</code> to follow rotation. A selected pin produces <code>HostEvent::Pick</code>.</td>
 </tr>
 <tr>
 <td>Open directions</td>

@@ -432,6 +432,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Controls Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-exhibits-to-try-when-your-app-grows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two exhibits to try when your app grows
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -499,6 +514,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -531,6 +612,21 @@
       Controls Gallery
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Controls Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-exhibits-to-try-when-your-app-grows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two exhibits to try when your app grows
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -621,11 +717,15 @@
 </div>
 
 <p>Open <strong>Inputs</strong> to exercise native editing, switches, sliders, and date selection. Search by control name, such as <strong>slider</strong>, <strong>canvas</strong>, or <strong>clipboard</strong>. <strong>Layout</strong> demonstrates rows, columns, wrapping, overlays and adaptive panels. <strong>Device utilities</strong> gives clipboard, haptics, authentication and secure storage their own instructions and results.</p>
+<h3 id="two-exhibits-to-try-when-your-app-grows">Two exhibits to try when your app grows<a class="headerlink" href="#two-exhibits-to-try-when-your-app-grows" title="Permanent link">&para;</a></h3>
+<p>Open <strong>Projects</strong>, type “garden” in the filter, and select <strong>Community garden</strong>. Choose <strong>Edit task</strong>, change the title, and go back without saving. The detail screen shows the original task. Try again and choose <strong>Save</strong>. This time the detail screen shows your edit, and going back once more brings you to the filtered list. The filter, the draft, and the saved record each live as long as the part of the app that owns them. <a href="navigation.html#give-each-section-its-own-model">How Projects divides its state</a></p>
+<p>Open <strong>Live monitor</strong> and put the phone down for a few seconds. The batch count increases as a worker sends new simulated quotes. Tap <strong>Pause feed</strong> and switch to another app. When you return, the display is still paused at the same prices. Tap <strong>Resume feed</strong> to continue, or go back to the catalog and reopen the exhibit to start over. <a href="navigation.html#receive-messages-from-background-work">How a worker wakes the screen</a></p>
 <h2 id="falling-blocks">Falling Blocks<a class="headerlink" href="#falling-blocks" title="Permanent link">&para;</a></h2>
 <p><img src="assets/blocks-game.webp" width="210" loading="lazy" alt="Falling Blocks board with movement and rotation controls"></p>
 <p>Start the game, move or rotate the piece, and drop it. The Rust model owns timing, board state, and collision detection. The drawing surface receives the updated board. Pause and return to the game to exercise lifecycle behavior.</p>
 <p><a href="screens.html#model-message-and-update">Model, message, and update</a> explains how the buttons and swipes reach the same game rules.</p>
 <h2 id="field-catch">Field Catch<a class="headerlink" href="#field-catch" title="Permanent link">&para;</a></h2>
+<p>Two players share a field code and take turns kicking and catching over six turns. Before the partner joins, the creator chooses a maximum kick distance of 30, 60, or 100 metres and wind from calm to strong. Selecting 100 metres shows a warning about the distance.</p>
 <div class="gallery-exhibits">
   <figure><a href="assets/field-catch-aim.webp"><img src="assets/field-catch-aim.webp" loading="lazy" alt="Aiming puck and kick guide beside the ball on the map"></a><figcaption>Aim a kick</figcaption></figure>
   <figure><a href="assets/field-catch-flight.webp"><img src="assets/field-catch-flight.webp" loading="lazy" alt="Ball in flight with height and distance from the catcher"></a><figcaption>Track the flight</figcaption></figure>
@@ -634,7 +734,9 @@
   <figure><a href="assets/field-catch-lobby.webp"><img src="assets/field-catch-lobby.webp" loading="lazy" alt="Create a Field and Join a Field actions below the map"></a><figcaption>Play with a partner</figcaption></figure>
   <figure><a href="assets/field-catch-rules.webp"><img src="assets/field-catch-rules.webp" loading="lazy" alt="Game rules sheet describing both roles and the speed bonus"></a><figcaption>Learn the rules</figcaption></figure>
 </div>
-<p>Create or join a Field to play with a partner. Field Catch uses typed UI messages and WebRTC callbacks, and returns native effects from its reducer. <a href="screens.html#model-message-and-update">Model, message, and update</a></p>
+
+<p>The kicker drags the puck to set direction and power, then taps <strong>KICK</strong>. The guide stays aligned with the target when the map rotates. During flight, the map reports the ball’s height and distance from the catcher. At touchdown, the catcher has 60 seconds to reach the flag. Two consecutive accurate GPS readings within 12 metres register the catch. A catch earns one point. During the first 30 seconds after touchdown, it also earns a bonus that starts at five points and drops by one every six seconds.</p>
+<p>The catcher can switch to <strong>View in AR</strong> and share the rear-camera view with the kicker. Players can also unmute their microphones or invite each other to a video call. The match continues while they talk. Field Catch owns the scoring, peer messages, and choice of camera view. Erosion delivers the GPS fixes and maps touch input to the game’s messages. <a href="screens.html#model-message-and-update">Explore the Rust update loop</a>.</p>
 <h2 id="run-regression-checks">Run regression checks<a class="headerlink" href="#run-regression-checks" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--release<span class="w"> </span>--locked<span class="w"> </span>--<span class="w"> </span>--test-threads<span class="o">=</span><span class="m">1</span>
 </code></pre></div>

@@ -317,6 +317,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Create a standalone app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-lives-in-the-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      What lives in the new repository?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -499,6 +514,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-support.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-privacy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch privacy policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="field-catch-eula.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Field Catch player terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -531,6 +612,21 @@
       Create a standalone app
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Create a standalone app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-lives-in-the-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      What lives in the new repository?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -579,16 +675,24 @@
 
 <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
 <h2 id="create-a-standalone-app">Create a standalone app<a class="headerlink" href="#create-a-standalone-app" title="Permanent link">&para;</a></h2>
-<p>From the directory where you keep your projects, install the generator and create a repository for your app.</p>
-<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>install<span class="w"> </span>--git<span class="w"> </span>https://github.com/fwaris/erosion.git<span class="w"> </span>--rev<span class="w"> </span>62683cae8cdf60c89a539e9389fa449eef63f271<span class="w"> </span>--locked<span class="w"> </span>cargo-erosion
+<p>Your first app is a counter with one button. You can run its Rust test as soon as you have Git and Rust installed. To see the button on a phone, you’ll also need the tools for that platform.</p>
+<p>Run the commands below from the directory where you keep your projects. The first command installs the generator at a specific framework revision. The second creates a Git repository named <code>hello-mobile</code>. Choose your own identifier if you intend to distribute the app. Erosion uses it for both the Android application ID and the iOS bundle identifier.</p>
+<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>install<span class="w"> </span>--git<span class="w"> </span>https://github.com/fwaris/erosion.git<span class="w"> </span>--rev<span class="w"> </span>aaba3e2591f56f5f36da9349f3373a355e528282<span class="w"> </span>--locked<span class="w"> </span>cargo-erosion
 cargo<span class="w"> </span>erosion<span class="w"> </span>new<span class="w"> </span>hello-mobile<span class="w"> </span>--id<span class="w"> </span>com.example.hellomobile<span class="w"> </span>--name<span class="w"> </span><span class="s2">"Hello Mobile"</span>
 <span class="nb">cd</span><span class="w"> </span>hello-mobile
 cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--locked
 </code></pre></div>
 <p>With an Android device connected, run <code>./scripts/run-android.ps1</code> in PowerShell on Windows. With an iPhone simulator booted, run <code>bash scripts/run-ios.sh</code> on your Mac. Tap <strong>Increment</strong> and the count changes from 0 to 1.</p>
 <p>Open <code>src/lib.rs</code> to change the counter. Add a variant to <code>Msg</code>, handle it in <code>update</code>, and bind a control to it in <code>view</code>. The generated <code>AGENTS.md</code> describes this pattern for contributors and coding agents. Share the repository with its lockfile. Teammates can use its local scripts directly. <a href="screens.html">Screens and state</a></p>
+<h3 id="what-lives-in-the-new-repository">What lives in the new repository?<a class="headerlink" href="#what-lives-in-the-new-repository" title="Permanent link">&para;</a></h3>
+<p>Edit <code>src/lib.rs</code> for behavior, <code>android/app</code> for the Android manifest and resources, and <code>ios/project.yml</code> for the iOS target and signing settings. The generated scripts use <code>cargo metadata --locked</code> to locate the framework checkout that matches your lockfile. That checkout supplies the shared build helpers, Rust bridge, and native renderers. A teammate can clone your app and run either script with the platform tools installed.</p>
 <h2 id="platform-setup">Platform setup<a class="headerlink" href="#platform-setup" title="Permanent link">&para;</a></h2>
-<p>Android requires PowerShell 7, JDK 21, Android SDK Platform 35, Build Tools 36.0.0, NDK r27d, and the Rust targets <code>aarch64-linux-android</code> and <code>x86_64-linux-android</code>. On an Apple Silicon Mac install Xcode, an iOS simulator runtime, XcodeGen, and the Rust targets <code>aarch64-apple-ios</code> and <code>aarch64-apple-ios-sim</code>. Use <code>rustup target add</code> from the repository root.</p>
+<p><strong>Android on Windows.</strong> Install PowerShell 7 and JDK 21. In the Android SDK Manager, install SDK Platform 35, Build Tools 36.0.0, and NDK r27d. If you also want to build the Field Catch sample, install SDK Platform 36. Add the Rust targets for an ARM phone and an x86-64 emulator:</p>
+<div class="highlight"><pre><span></span><code>rustup<span class="w"> </span>target<span class="w"> </span>add<span class="w"> </span>aarch64-linux-android<span class="w"> </span>x86_64-linux-android
+</code></pre></div>
+<p><strong>iOS on an Apple Silicon Mac.</strong> Install Xcode, an iOS simulator runtime, and XcodeGen. Add the two Rust targets below. The launcher uses XcodeGen to turn the app’s <code>ios/project.yml</code> into an Xcode project and uses Xcode to build and install the app.</p>
+<div class="highlight"><pre><span></span><code>rustup<span class="w"> </span>target<span class="w"> </span>add<span class="w"> </span>aarch64-apple-ios<span class="w"> </span>aarch64-apple-ios-sim
+</code></pre></div>
 <h2 id="run-one-sample">Run one sample<a class="headerlink" href="#run-one-sample" title="Permanent link">&para;</a></h2>
 <p>To explore the three framework examples, clone the Erosion repository and run these commands from its root. Each command builds, installs, and opens the selected application.</p>
 <table>
@@ -619,13 +723,15 @@ cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span
 </table>
 <p><strong>Android.</strong> Start an emulator or connect a phone with USB or wireless debugging enabled. With multiple devices connected, use <code>adb devices -l</code> and append <code>-Serial &lt;serial&gt;</code>.</p>
 <p><strong>iOS.</strong> Start an iPhone simulator, or pass its UDID to boot it, for example <code>bash scripts/run-ios.sh gallery "$SIMULATOR_UDID"</code>. List simulators with <code>xcrun simctl list devices available</code>. For a paired physical iPhone, set <code>DEVELOPMENT_TEAM</code> to your Apple team ID and run <code>bash scripts/run-ios.sh gallery --device "$IPHONE_UDID"</code> with the phone unlocked. Find the device with <code>xcrun devicectl list devices</code>.</p>
-<p><strong>Field Catch multiplayer.</strong> Start <code>cargo run --locked -p field-catch-broker</code> in a separate terminal. Android forwards port 8787 automatically in local mode. An iOS simulator can use the broker on its Mac. For a physical iPhone or players on separate computers, follow the Field Catch network setup in the repository’s sample guide.</p>
+<p><strong>Field Catch multiplayer.</strong> Field Catch uses Firebase when the build account has <code>~/.config/erosion/field-catch-firebase.json</code>. For local play, start <code>cargo run --locked -p field-catch-broker</code> in a separate terminal. Android forwards port 8787 automatically in local mode. An iOS simulator can use the broker on its Mac. For a physical iPhone or players on separate computers, follow the Field Catch network setup in the repository’s sample guide.</p>
 <h2 id="upgrade-a-generated-app">Upgrade a generated app<a class="headerlink" href="#upgrade-a-generated-app" title="Permanent link">&para;</a></h2>
 <ol>
 <li>In the app's Cargo.toml, set both Erosion Git dependencies to the same new commit. Run <code>cargo update -p erosion-ui -p erosion-native-host</code> and commit Cargo.lock. Preserve the Rust package name, Android application ID, iOS bundle ID, and app data keys so the installed app upgrades in place.</li>
 <li>Replace <code>study.mobile.StudyActivity</code> with <code>dev.erosion.host.ErosionActivity</code> in the Android manifest and in the component launched by <code>scripts/run-android.ps1</code>. Keep the existing <code>rust.app</code> metadata. For custom JNI callers, the bridge class is <code>dev.erosion.host.ErosionBridge</code> and its shared library is <code>liberosion.so</code>.</li>
-<li>In the XcodeGen project, change <code>ios/Study.swift</code> to <code>ios/ErosionApp.swift</code> and <code>native-host/StudyBridge.h</code> to <code>native-host/ErosionBridge.h</code> under the same framework checkout. Keep the existing <code>RustApp</code> value and scene declaration. Custom C callers now use <code>erosion_exchange</code> and <code>erosion_release</code>.</li>
+<li>In the XcodeGen project, replace the individual framework Swift source entries with one source directory, <code>generated/framework/ios/Host</code>. Set the bridging header to <code>generated/framework/native-host/ErosionBridge.h</code>. Keep the existing <code>RustApp</code> value and scene declaration. Custom C callers now use <code>erosion_exchange</code> and <code>erosion_release</code>.</li>
 <li>Change Rust imports and matches from <code>erosion_ui::Event</code> to <code>erosion_ui::HostEvent</code>. Existing <code>Application</code> implementations and native factories continue to work. A single-screen counter can replace its adapter and export with <code>erosion_ui::erosion_app!(Model::default, update, view);</code> and remove the old adapter imports. Apps with lifecycle hooks can implement <code>erosion_ui::app::DeclarativeApp</code> and return an <code>AppAdapter</code> from their factory.</li>
+<li>Remove the numeric first argument from <code>strata_screen</code> and <code>widgets::screen</code>. For a page stack, replace the old route and presentation hooks with <code>fn navigation(&amp;self) -&gt; Navigation { self.nav.navigation() }</code>. Render <code>self.nav.current()</code> and use <code>push_with_transition</code> for an explicit transition. Store pending request IDs in the model and decide which operations continue when a page closes.</li>
+<li>For low-level controls, wrap canvas and map data in <code>Control::Canvas(canvas::Canvas { ... })</code> and <code>Control::Map(map::Map { ... })</code>. Move glyphs onto <code>MapPin</code> and circles into <code>Map::overlays</code>. Field Catch owns its AR scene payload and supplies its renderer through <code>Control::NativeSurface</code>. Set button icons on the button builder. Direct node readers can use <code>key()</code>, <code>control()</code>, and <code>style()</code>.</li>
 <li>Run <code>cargo test --locked</code>, then run the app's Android and iOS scripts. Install over the existing app and check a previously saved setting on both platforms.</li>
 </ol>
 
